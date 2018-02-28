@@ -202,3 +202,48 @@ require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/inc/widgets/BootstrapBasicSearchWidget.php';
 require get_template_directory() . '/inc/template-widgets-hook.php';
 
+
+
+/**
+ * --------------------------------------------------------------
+ * Criação de Tema Avançado com Custom Post Type School Of Net
+ * --------------------------------------------------------------
+ */
+
+function bootstrap_son_post_types_filmes()
+{
+	$labels = array(
+		'name' => "Filmes",
+		'singular_name' => "Filme",
+		'add_new' => "Adicionar novo filme",
+		'add_new_label' => "Adicionar novo filme",
+		'all_item' => "Ver todos os filmes",
+		'add_new_item' => "Adicionar novo filme",
+		'edit_new_item' => "Editar filme",
+		'new_item' => "Novo Filme",
+		'view_item' => "Visualizar Filme",
+		'search_item' => "Procurar Filme",
+		'not_found' => "Nenhum filme encontrado",
+		'not_found_in_trash' => "Nenhum filme na lixeira"
+	);
+	
+	$args = array(
+		'labels' => $labels,	
+		'public' => true,	
+		'has_archive' => true,	
+		'publicy_queryable' => true,	
+		'query_var' => true,	
+		'rewrite' => true,	
+		'capability_type' => "post",	
+		'supports' => array(
+				'title','editor', 'thumbnail', 'excerpt'			
+			),	
+		'menu_position' => 5,	
+		'exclude_from_search' => false		
+	);
+	
+	register_post_type( 'filmes',$args);
+	
+}
+
+add_action('init','bootstrap_son_post_types_filmes');
