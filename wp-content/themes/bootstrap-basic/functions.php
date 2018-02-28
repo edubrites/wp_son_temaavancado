@@ -245,5 +245,34 @@ function bootstrap_son_post_types_filmes()
 	register_post_type('filmes',$args);
 	
 }
-
 add_action('init','bootstrap_son_post_types_filmes');
+
+function bootstrap_son_taxonomias(){
+
+	// Taxonomia Hierarquica - Gênero
+	
+	$labels = array(
+		'name' => "Gêneros",
+		'singular_name' => "Gênero",
+		'search_items' => "Procurar Gênero",
+		'all_items' => "Ver todos os gêneros",
+		'parent_item' => "Gênero Pai",
+		'parent_item_colon' => "Gênero Pai",
+		'edit_item' => "Editar Gênero",
+		'update_item' => "Atualizar Gênero",
+		'add_new_item' => "Adicionar novo gênero",
+		'new_item_name' => "Novo Gênero",
+		'menu_name' => "Gêneros"
+	);
+
+	$args = array(
+		'hierarchical' => true,
+		'labels' => $labels,
+		'show_admin_column' => true,
+		'query_var' => true,
+		'rewrite' => array("slug"=>"genero")
+	);
+
+	register_taxonomy('genero', 'filmes',$args);
+}
+add_action('init','bootstrap_son_taxonomias');
