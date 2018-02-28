@@ -274,5 +274,32 @@ function bootstrap_son_taxonomias(){
 	);
 
 	register_taxonomy('genero', 'filmes',$args);
+	
+	
+	// Taxonomia NÃO Hierarquica - Diretores
+	
+	$labelsDiretor = array(
+		'name' => "Diretores",
+		'singular_name' => "Diretor",
+		'search_items' => "Procurar Diretore",
+		'all_items' => "Ver todos os diretores",
+		'parent_item' => "Diretor Pai",
+		'parent_item_colon' => "Diretor Pai",
+		'edit_item' => "Editar Diretores",
+		'update_item' => "Atualizar Diretor",
+		'add_new_item' => "Adicionar novo diretor",
+		'new_item_name' => "Novo Diretor",
+		'menu_name' => "Diretores"
+	);
+
+	$argsDiretor = array(
+		'hierarchical' => false,
+		'labels' => $labelsDiretor,
+		'show_admin_column' => true,
+		'query_var' => true,
+		'rewrite' => array("slug"=>"diretores")
+	);
+
+	register_taxonomy('diretor', 'filmes',$argsDiretor);
 }
 add_action('init','bootstrap_son_taxonomias');
