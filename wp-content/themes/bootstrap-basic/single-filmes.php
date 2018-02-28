@@ -23,6 +23,16 @@ $main_column_size = bootstrapBasicGetMainColumnSize();
 							echo "\n\n";
 							the_post_thumbnail('medium');
 							
+							echo "<br>";
+							
+							echo "Gêneros: ";
+							$termos = wp_get_post_terms(get_post()->ID, 'genero');
+							
+							foreach ($termos as $termo){
+							    $link = get_term_link( $termo );
+							    echo "<a href='".$link."'>" .$termo->name. "</a> || ";
+                            }
+                            
 							echo "\n\n";
 							
 							bootstrapBasicPagination();

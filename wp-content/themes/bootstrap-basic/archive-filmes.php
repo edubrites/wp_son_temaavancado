@@ -88,7 +88,19 @@ $main_column_size = bootstrapBasicGetMainColumnSize();
 							 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 							 */
 							the_post_thumbnail('medium');
+							echo "<br>";
+
+							echo "Gêneros: ";
+							$termos = wp_get_post_terms(get_post()->ID, 'genero');
+
+							foreach ($termos as $termo){
+								$link = get_term_link( $termo );
+								echo "<a href='".$link."'>" .$termo->name. "</a> || ";
+							}
+							echo "<br>";
 							get_template_part('content', get_post_format());
+							echo "<br><br>";
+							
 						} //endwhile; 
 						?> 
 
