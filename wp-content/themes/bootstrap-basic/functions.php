@@ -219,7 +219,7 @@ function bootstrap_son_post_types_filmes()
 		'add_new_label' => "Adicionar novo filme",
 		'all_item' => "Ver todos os filmes",
 		'add_new_item' => "Adicionar novo filme",
-		'edit_new_item' => "Editar filme",
+		'edit_item' => "Editar Filme",
 		'new_item' => "Novo Filme",
 		'view_item' => "Visualizar Filme",
 		'search_item' => "Procurar Filme",
@@ -242,7 +242,7 @@ function bootstrap_son_post_types_filmes()
 		'exclude_from_search' => false		
 	);
 	
-	register_post_type( 'filmes',$args);
+	register_post_type('filmes',$args);
 	
 }
 
